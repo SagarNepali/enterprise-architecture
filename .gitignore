@@ -13,6 +13,12 @@
 #IDE 
 .idea
 
+#eclipse
+.settings
+.project
+.classpath
+
+
 # Package Files #
 *.jar
 *.war
