@@ -1,0 +1,4 @@
+package edu.miu.cs544;
+
+public class Greeting {
+}
