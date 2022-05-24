@@ -1,7 +1,10 @@
 package edu.mum.cs544;
 
+import org.springframework.stereotype.Service;
+
 import java.util.*;
 
+@Service
 public class ProductService implements IProductService {
 	private Collection<Product> productList = new ArrayList<Product>();
 
