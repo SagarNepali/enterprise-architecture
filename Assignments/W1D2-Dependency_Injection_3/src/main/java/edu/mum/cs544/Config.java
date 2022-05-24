@@ -1,5 +1,6 @@
 package edu.mum.cs544;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -9,18 +10,22 @@ import org.springframework.context.annotation.Configuration;
 public class Config {
 
     @Bean
-    public Amazon amazon(){
+    public IBookSupplier amazon(){
         return new Amazon();
     }
 
     @Bean
-    public EBooks eBooks(){
+    public IBookSupplier eBooks(){
         return new EBooks();
     }
 
     @Bean
-    public BarnesAndNoble barnesAndNoble(){
+    public IBookSupplier barnesAndNoble(){
         return new BarnesAndNoble();
     }
 
+    @Bean
+    public IBookSupplier borders(){
+        return new Borders();
+    }
 }

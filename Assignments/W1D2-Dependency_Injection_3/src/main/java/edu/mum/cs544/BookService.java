@@ -11,26 +11,8 @@ public class BookService implements IBookService {
 	@Autowired
 	public List<IBookSupplier> suppliers ;
 
-	@Autowired
-	@Qualifier("amazon")
-	private IBookSupplier amazon;
-
-	@Autowired
-	@Qualifier("eBooks")
-	private IBookSupplier eBooks;
-
-	@Autowired
-	@Qualifier("barnesAndNoble")
-	private IBookSupplier barnesAndNoble;
-
-
 	public BookService(List<IBookSupplier> suppliers) {
-
 		this.suppliers = suppliers;
-
-		suppliers.add(amazon);
-		suppliers.add(barnesAndNoble);
-		suppliers.add(eBooks);
 	}
 
 	public void buy(Book book) {
