@@ -1,18 +1,36 @@
 package edu.mum.cs544;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
 import java.util.*;
 
+@Service
 public class BookService implements IBookService {
-	public List<IBookSupplier> suppliers = new ArrayList<IBookSupplier>();
+	@Autowired
+	public List<IBookSupplier> suppliers ;
 
-	public BookService() {
-		IBookSupplier amazon = new Amazon();
-		IBookSupplier barnesandnoble = new BarnesAndNoble();
-		IBookSupplier ebooks = new EBooks();
+	@Autowired
+	@Qualifier("amazon")
+	private IBookSupplier amazon;
+
+	@Autowired
+	@Qualifier("eBooks")
+	private IBookSupplier eBooks;
+
+	@Autowired
+	@Qualifier("barnesAndNoble")
+	private IBookSupplier barnesAndNoble;
+
+
+	public BookService(List<IBookSupplier> suppliers) {
+
+		this.suppliers = suppliers;
 
 		suppliers.add(amazon);
-		suppliers.add(barnesandnoble);
-		suppliers.add(ebooks);
+		suppliers.add(barnesAndNoble);
+		suppliers.add(eBooks);
 	}
 
 	public void buy(Book book) {
