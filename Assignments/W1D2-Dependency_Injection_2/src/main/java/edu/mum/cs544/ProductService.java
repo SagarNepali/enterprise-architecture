@@ -1,11 +1,16 @@
 package edu.mum.cs544;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
 public class ProductService implements IProductService {
+
+	@Autowired
+	private IInventoryService inventoryService;
+
 	private Collection<Product> productList = new ArrayList<Product>();
 
 	public ProductService() {
@@ -14,12 +19,21 @@ public class ProductService implements IProductService {
 		productList.add(new Product(423, "Plasma TV", 992.55));
 	}
 
+	public void setInventoryService(IInventoryService inventoryService) {
+		this.inventoryService = inventoryService;
+	}
+
 	public Product getProduct(int productNumber) {
 		for (Product product : productList) {
 			if (product.getProductNumber() == productNumber)
 				return product;
 		}
 		return null;
+	}
+
+	@Override
+	public int getNumberInStock(int productNumber) {
+		return inventoryService.getNumberInStock(productNumber);
 	}
 
 }
