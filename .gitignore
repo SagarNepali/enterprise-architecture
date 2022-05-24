@@ -12,6 +12,7 @@
 
 #IDE 
 .idea
+/target/
 
 #eclipse
 .settings
