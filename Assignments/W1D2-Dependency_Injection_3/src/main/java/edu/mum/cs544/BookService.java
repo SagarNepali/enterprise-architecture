@@ -11,10 +11,6 @@ public class BookService implements IBookService {
 	@Autowired
 	public List<IBookSupplier> suppliers ;
 
-	public BookService(List<IBookSupplier> suppliers) {
-		this.suppliers = suppliers;
-	}
-
 	public void buy(Book book) {
 		double lowestPrice = 0;
 		IBookSupplier cheapestSupplier = null;
