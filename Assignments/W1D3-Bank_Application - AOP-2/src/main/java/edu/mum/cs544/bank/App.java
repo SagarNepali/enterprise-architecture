@@ -17,7 +17,7 @@ public class App {
 		ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 
 
-		IAccountService accountService = context.getBean("accountService",AccountService.class);
+		IAccountService accountService = context.getBean("accountService",IAccountService.class);
 		// create 2 accounts;
 		accountService.createAccount(1263862, "Frank Brown");
 		accountService.createAccount(4253892, "John Doe");
