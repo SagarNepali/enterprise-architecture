@@ -40,6 +40,8 @@ public class AppCar {
         }
         em.getTransaction().commit();
         em.close();
+
+        AppBook.main();
     }
 }
 
