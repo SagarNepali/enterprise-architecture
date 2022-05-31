@@ -12,8 +12,13 @@ import javax.persistence.Entity;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@DiscriminatorValue("book")
+//@DiscriminatorValue("book")
 public class Book extends  Product{
     private String title;
+
+    public Book(String title, String name, String desc){
+        super(name,desc);
+        this.title = title;
+    }
 
 }

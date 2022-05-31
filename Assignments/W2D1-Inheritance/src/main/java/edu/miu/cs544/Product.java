@@ -14,8 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "product_type", discriminatorType = DiscriminatorType.STRING)
+@Inheritance(strategy = InheritanceType.JOINED)
+//@DiscriminatorColumn(name = "product_type", discriminatorType = DiscriminatorType.STRING)
 public class Product {
 
     @Id
@@ -23,5 +23,10 @@ public class Product {
     private Long id;
     private String name;
     private String description;
+
+    public Product(String name, String description){
+        this.name = name;
+        this.description = description;
+    }
 
 }

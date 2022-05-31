@@ -12,8 +12,13 @@ import javax.persistence.Entity;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@DiscriminatorValue("cd")
+//@DiscriminatorValue("cd")
 public class CD extends Product{
 
     private String artist;
+
+    public CD(String artist, String name, String desc){
+        super(name,desc);
+        this.artist = artist;
+    }
 }

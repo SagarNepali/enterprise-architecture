@@ -33,9 +33,9 @@ public class App {
         Product p5 = Product.builder().name("BOOTS").description("KIDS").build();
         Product p6 = Product.builder().name("SHOES").description("MENS").build();
         Product p7 = Product.builder().name("BOTTLE").description("HOME").build();
-        Product cd = new CD("Beyonce");
-        Product dvd = new DVD("Comedy");
-        Product book = new Book("Night Owl");
+        Product cd = new CD("beyonce","MUSIC","POP ARTIST");
+        Product dvd = new DVD("Comedy","WELCOME","Majnu Bhai");
+        Product book = new Book("Night Owl","RANDOM","RANDOM");
 
         Customer customer = Customer.builder()
                 .firstname("SUTO")

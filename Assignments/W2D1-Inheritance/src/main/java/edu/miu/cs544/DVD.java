@@ -13,7 +13,12 @@ import javax.persistence.Entity;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@DiscriminatorValue("dvd")
+//@DiscriminatorValue("dvd")
 public class DVD extends Product{
     private String genre;
+
+    public DVD(String genre, String name, String desc){
+        super(name,desc);
+        this.genre = genre;
+    }
 }
