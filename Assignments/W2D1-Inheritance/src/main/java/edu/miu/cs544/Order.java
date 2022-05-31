@@ -27,5 +27,6 @@ public class Order {
     private Customer customer;
 
     @OneToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "order_id")
     List<OrderLine> orderLines = new ArrayList<>();
 }

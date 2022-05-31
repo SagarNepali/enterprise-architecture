@@ -22,7 +22,7 @@ public class Customer {
     private String firstname;
     private String lastname;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "customer")
     List<Order> orders = new ArrayList<>();
 
 
