@@ -3,6 +3,7 @@ package edu.miu.cs54;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
 import java.util.function.Consumer;
 
 public class App {
@@ -32,8 +33,14 @@ public class App {
                         .build())
                 .build();
 
+        Vehicle v = new Bike("SUTI","FORD","199F",1992,"BLUE",new ArrayList<>(){{
+            add(new Wheel(0L,20,40));
+            add(new Wheel(1L,10,30));
+        }},4);
+
         apply(entityManager -> {
             entityManager.persist(appointment);
+            entityManager.persist(v);
         });
 
     }
