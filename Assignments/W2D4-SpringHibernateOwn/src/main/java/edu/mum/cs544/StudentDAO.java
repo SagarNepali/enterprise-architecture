@@ -1,12 +1,15 @@
 package edu.mum.cs544;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
 
 @Repository
+@Transactional(propagation = Propagation.MANDATORY)
 public class StudentDAO {
 
 	@PersistenceContext
@@ -19,6 +22,6 @@ public class StudentDAO {
 		Map<String,Object> map = new HashMap<>();
 		map.put("javax.persistence.fetchgraph",studentEntityGraph);
 		return em.find(Student.class,studentid,map);
-
+//		return em.find(Student.class,studentid);
 	}
 }
