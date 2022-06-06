@@ -13,6 +13,8 @@
 #IDE 
 .idea
 /target/
+/*/target/
+/*/*/target/
 
 #eclipse
 .settings
