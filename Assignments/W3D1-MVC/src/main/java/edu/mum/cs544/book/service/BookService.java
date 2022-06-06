@@ -16,15 +16,15 @@ public class BookService {
     BookDao bookDao;
 
     public List<Book> findAll(){
-        return bookDao.getAll();
+        return bookDao.findAll();
     }
 
     public Book findOne(Integer id){
-        return bookDao.getById(id);
+        return bookDao.getOne(id);
     }
 
     public void update(Book book){
-        bookDao.update(book);
+        bookDao.save(book);
     }
 
     public void save(Book book){
@@ -32,6 +32,6 @@ public class BookService {
     }
 
     public void deleteById(Integer id){
-        bookDao.delete(id);
+        bookDao.delete(findOne(id));
     }
 }

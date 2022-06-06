@@ -1,9 +1,11 @@
 package edu.mum.cs544;
 
+import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
+import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -26,5 +28,7 @@ public class MyWebAppInitializer implements WebApplicationInitializer {
 		appServlet.setLoadOnStartup(1);
 		appServlet.addMapping("/");
 
+        FilterRegistration.Dynamic openInView = container.addFilter("OpenInView",new OpenEntityManagerInViewFilter());
+        openInView.addMappingForUrlPatterns(null,true,"/*");
     }
 }
