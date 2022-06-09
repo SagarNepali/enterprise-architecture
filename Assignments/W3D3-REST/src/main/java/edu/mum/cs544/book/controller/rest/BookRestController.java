@@ -35,7 +35,7 @@ public class BookRestController {
         return new RedirectView("/api/books/"+book.getId());
     }
 
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public void update(@RequestBody Book book,@PathVariable int id){
         bookService.update(book);
     }
